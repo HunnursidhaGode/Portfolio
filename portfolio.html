@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My College Projects</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #333;
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation Bar */
+      nav {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #2575fc;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #6a11cb;
+      }
+
+      header {
+        padding: 60px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        text-align: left;
+      }
+
+      .profile-pic {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 5px solid #2575fc;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+      }
+
+      .intro {
+        max-width: 500px;
+      }
+
+      .intro h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #2575fc;
+      }
+
+      .intro p {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      /* About Section */
+      #about {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 20px;
+        margin-top: 40px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      #about h2 {
+        color: #2575fc;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #about p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #444;
+        text-align: center;
+      }
+
+      /* Skills Section */
+      #skills {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 20px;
+        margin-top: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+        text-align: center;
+      }
+
+      #skills h2,
+      #skills h3 {
+        color: #2575fc;
+        margin-bottom: 10px;
+      }
+
+      #skills p {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      /* Projects Section */
+      #projects {
+        padding: 20px 0;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-card h3 {
+        margin-top: 0;
+        color: #6a11cb;
+      }
+
+      .project-card p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background: linear-gradient(45deg, #ff6a00, #ee0979);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background: linear-gradient(45deg, #ee0979, #ff6a00);
+      }
+
+      /* Contact Section */
+      #contact {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px 20px;
+        margin-top: 40px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      #contact h2 {
+        color: #2575fc;
+        margin-bottom: 20px;
+      }
+
+      #contact p {
+        margin: 8px 0;
+        font-size: 1rem;
+      }
+
+      #contact a {
+        color: #6a11cb;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      #contact a:hover {
+        text-decoration: underline;
+      }
+
+      .resume-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .resume-btn:hover {
+        background: linear-gradient(45deg, #0072ff, #00c6ff);
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <header id="home">
+      <img src="gode.jpeg" alt="My Profile Picture" class="profile-pic" />
+      <div class="intro">
+        <h2>NAME:HUNNURSIDHA SANGAPPA GODE</h2>
+        <h1>My All Projects</h1>
+        <p>
+          A showcase of all my works during college. Passionate about coding,
+          web development, and problem-solving.
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- About Section -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hello! My Name is <b>Hunnursidha Gode</b>, a postgraduate in Computer
+          Science (M.Sc.) with a strong foundation in B.Sc. (ECS) from Sangola
+          College, Sangola, affiliated with Punyashlok Ahilyadevi Holkar Solapur
+          University. Throughout my academic journey, I have gained expertise in
+          ASP.NET, C#, JavaScript, SQL, SQL Server, ADO.NET, C, C++, and modern
+          web technologies. I enjoy solving problems, developing innovative
+          solutions, and creating projects that combine efficiency with
+          creativity. I aspire to grow as a full-stack developer, continuously
+          learn emerging technologies, and contribute to impactful projects in
+          the software development field.
+        </p>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <h3>Front-End:</h3>
+        <b><p>HTML, CSS, JavaScript</p></b>
+
+        <h3>Programming languages known</h3>
+        <b><p>C, C++, C# , ASP.net , MVC</p></b>
+        <h3>Database:</h3>
+        <b><p>SQL ,SSMS(SQL SERVER MANAGEMENT SYSTEM),MYSQL</p></b>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2 style="color: white; text-align: center">Projects</h2>
+        <div class="projects">
+          <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>
+              A personal portfolio designed using HTML, CSS, and JavaScript.
+            </p>
+            <a href="#" class="btn">View Project</a>
+          </div>
+
+          <div class="project-card">
+            <h3>Hotel Management System</h3>
+            <p>
+              Hotel Management System (ASP.NET Web Forms) Developed a
+              full-featured hotel management system with user registration,
+              login, and hotel booking functionalities. Integrated SQL Server
+              for data storage and used GridView to display user and hotel
+              details dynamically. Implemented form validations, master page
+              layout, and a responsive UI.
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/HotelManagementProject.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+
+          <div class="project-card">
+            <h3>QR Code Generator</h3>
+            <p>
+              This project is all about dynamically generating QR codes in
+              ASP.NET MVC. It helps generating QR codes, creating QR code
+              images, and working with QR code-related tasks in ASP.NET MVC
+              using a library called Qrcoder. Qrcoder generation project also
+              helps for QR code text creation, reading QR codes, and image
+              creation in ASP.NET MVC. We have used Asp.Net MVC for front end
+              design, Sql server for back end design
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/QrScanner.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>WeatherDetectionApp</h3>
+            <p>
+              This project is used to display the weather forecast
+              OpenWeatherMap Weather API. Weather app is a web application which
+              will tell the users about the weather details of any particular
+              city. The easy and Interactive User Interface will help users to
+              easily know about the temperature, wind speed, humidity and
+              description about the weather. We have used Asp.Net MVC and Jquery
+              for front end design, Sql server for back end design
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/WeatherApp.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+
+          <div class="project-card">
+            <h3>Calculator Project</h3>
+            <p>
+              This project is used to build a calculator device that performs
+              arithmetic operations on numbers. User can perform basic
+              operations like addition, subtraction, multiplication and division
+              mathematical calculations. We have used Asp.Net MVC and Jquery for
+              front end design, Sql server for back end design
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/CalculatorProject.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Calender Project</h3>
+            <p>
+              The ASP.NET MVC Calendar control enables users to intuitively
+              select dates, navigate through days, months and years, and define
+              special-day templates. We can offer end-users a calendar that
+              feels natural and functions seamlessly. We have used Asp.Net MVC
+              and Jquery for front end design, Sql server for back end design
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/CalenderProject.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Captcha Creation Project</h3>
+            <p>
+              A CAPTCHA is a validation layer to recognize the type of user
+              before sending data to the server. This project will help us to
+              avoid many spam messages or users. We have used CaptchaMvc library
+              for getting Captcha features. We have used Asp.Net MVC and Jquery
+              for front end design, Sql server for back end design.
+            </p>
+            <a
+              href="https://github.com/HunnursidhaGode/CaptchaProject.git"
+              class="btn"
+              >View Project</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>
+          Email:
+          <a href="mailto:hsgodehg123@gmail.com">hsgodehg123@gmail.com</a>
+        </p>
+
+        <p>
+          MobileNumber:
+          <a href="#">8767402205</a>
+        </p>
+
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/hunnursidha-gode-759a46262"
+            target="_blank"
+            >linkedin.com/in/hunnursidha-gode</a
+          >
+        </p>
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/HunnursidhaGode?tab=repositories"
+            target="_blank"
+            >github.com/yourgithub</a
+          >
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <p>@My Portfolio Hunnursidha Sangappa Gode</p>
+    </footer>
+  </body>
+</html>
