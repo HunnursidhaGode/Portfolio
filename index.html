@@ -227,6 +227,18 @@
         background: rgba(255, 255, 255, 0.9);
         box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
       }
+
+      /* Small responsive tweaks */
+      @media (max-width: 520px) {
+        .intro h1 {
+          font-size: 1.6rem;
+        }
+
+        .profile-pic {
+          width: 140px;
+          height: 140px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -404,7 +416,7 @@
 
         <p>
           MobileNumber:
-          <a href="#">8767402205</a>
+          <a href="tel:+918767402205">+91 87674 02205</a>
         </p>
 
         <p>
@@ -412,6 +424,7 @@
           <a
             href="https://www.linkedin.com/in/hunnursidha-gode-759a46262"
             target="_blank"
+            rel="noopener noreferrer"
             >linkedin.com/in/hunnursidha-gode</a
           >
         </p>
@@ -420,8 +433,32 @@
           <a
             href="https://github.com/HunnursidhaGode?tab=repositories"
             target="_blank"
-            >github.com/yourgithub</a
+            rel="noopener noreferrer"
+            >github.com/HunnursidhaGode</a
           >
+        </p>
+
+        <!-- Download Resume Button -->
+        <!-- To make this work when you host the site, place a file named `resume.pdf` in the same folder as this HTML file. -->
+        <p>
+          <a
+            href="MyFinal Resume.pdf"
+            download="MyFinal Resume.pdf"
+            class="resume-btn"
+            aria-label="Download Hunnursidha Gode Resume"
+            >Download Resume</a
+          >
+        </p>
+
+        <!-- Optional: Preview Resume in new tab (works even if download attribute is ignored by browser) -->
+        <p style="margin-top: 8px; font-size: 0.95rem; color: #444">
+          <a
+            href="portfolio/MyFinal Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Preview Resume in a new tab
+          </a>
         </p>
       </section>
     </div>
